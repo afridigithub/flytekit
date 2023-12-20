@@ -2,7 +2,7 @@ from setuptools import find_packages, setup  # noqa
 
 extras_require = {}
 
-__version__ = "0.0.0+develop"
+__version__ = "1.10.1"
 
 setup(
     name="flytekit",
@@ -44,7 +44,7 @@ setup(
         "fsspec>=2023.3.0",
         "adlfs",
         "s3fs>=0.6.0",
-        "gcsfs",
+        "gcsfs==2023.12.1",
         "pyopenssl",
         "joblib",
         "python-json-logger>=2.0.0",

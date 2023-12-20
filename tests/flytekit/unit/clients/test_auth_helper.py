@@ -24,7 +24,7 @@ from flytekit.clients.auth_helper import (
     upgrade_channel_to_proxy_authenticated,
     wrap_exceptions_channel,
 )
-from flytekit.clients.grpc_utils.auth_interceptor import AuthUnaryInterceptor
+from flytekit.clients.grpc_utils.auth_interceptor import AuthUnaryInterceptor, EagerAuthUnaryInterceptor
 from flytekit.clients.grpc_utils.wrap_exception_interceptor import RetryExceptionWrapperInterceptor
 from flytekit.configuration import AuthType, PlatformConfig
 
@@ -173,7 +173,7 @@ def test_upgrade_channel_to_proxy_auth():
         ),
         ch,
     )
-    assert isinstance(out_ch._interceptor, AuthUnaryInterceptor)
+    assert isinstance(out_ch._interceptor, EagerAuthUnaryInterceptor)
     assert isinstance(out_ch._interceptor._authenticator, CommandAuthenticator)
 
 
